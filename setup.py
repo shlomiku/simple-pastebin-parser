@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-with open('README.md') as history_file:
+with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 # requirements = ["certifi==2019.11.28",
@@ -51,6 +51,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/shlomikushchi/simple_pastebin_parser',
-    version='v0.3.2',
+    version='v0.3.3',
     zip_safe=False,
 )
