@@ -13,7 +13,14 @@ with open('HISTORY.rst') as history_file:
 with open(os.path.join(os.getcwd(), "requirements.txt")) as req:
     requirements = req.readlines()
 
-setup_requirements = [ ]
+setup_requirements = ["certifi==2019.11.28",
+                      "chardet==3.0.4",
+                      "idna==2.9",
+                      "lxml==4.5.0",
+                      "python-dateutil==2.8.1",
+                      "requests==2.23.0",
+                      "six==1.14.0",
+                      "urllib3==1.25.8"]
 
 test_requirements = [ ]
 
