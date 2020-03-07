@@ -6,3 +6,9 @@ History
 ------------------
 
 * First release on PyPI.
+
+
+0.2.5 (2020-03-07)
+------------------
+
+* integration with travis.ci
