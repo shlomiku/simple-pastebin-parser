@@ -1,4 +1,7 @@
+[![Build Status](https://travis-ci.org/shlomikushchi/Simple-Pastebin-Parser.svg?branch=master)](https://travis-ci.org/shlomikushchi/Simple-Pastebin-Parser)
+
 # Simple-Pastebin-Parser
+
 this is a simpler parser for the pastebin.com website.
 
 it will iterate posts and parse their elements using lxml 
