@@ -11,14 +11,17 @@ with open('README.rst') as readme_file:
 with open('README.md') as history_file:
     history = history_file.read()
 
-requirements = ["certifi==2019.11.28",
-                "chardet==3.0.4",
-                "idna==2.9",
-                "lxml==4.5.0",
-                "python-dateutil==2.8.1",
-                "requests==2.23.0",
-                "six==1.14.0",
-                "urllib3==1.25.8"]
+# requirements = ["certifi==2019.11.28",
+#                 "chardet==3.0.4",
+#                 "idna==2.9",
+#                 "lxml==4.5.0",
+#                 "python-dateutil==2.8.1",
+#                 "requests==2.23.0",
+#                 "six==1.14.0",
+#                 "urllib3==1.25.8"]
+
+with open(os.path.join(os.getcwd(), "requirements.txt")) as req:
+    requirements = req.readlines()
 
 test_requirements = []
 setup_requirements = []
