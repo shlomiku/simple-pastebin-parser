@@ -16,7 +16,6 @@ def get_posts(should_stream: bool=False, sampling_frequency=30):
 
     :return:
     """
-    raise Exception("")
     hrefs = []
     while 1:
         tree = parse_html(Url(PASTEBIN_ARCHIVE_URL))
