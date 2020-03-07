@@ -48,6 +48,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/shlomikushchi/simple_pastebin_parser',
-    version='v0.2.5',
+    version='v0.2.6',
     zip_safe=False,
 )

@@ -9,7 +9,7 @@ KNOWN_HREFS = ['/favicon.ico', '/i/pastebin.min.v9.css?1575389335', '/pro', '/ap
 
 KNOWN_PREFIXES = ['http://', 'https://', '/tools', '/doc_', '/archive/']
 
-if __name__ == '__main__':
+def parse():
     page = requests.get('https://pastebin.com/archive')
     tree = html.fromstring(page.content)
     unfiltered_hrefs = [ref for ref in tree.xpath("//@href") if ref not in KNOWN_HREFS]
