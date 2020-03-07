@@ -10,8 +10,7 @@ with open('README.rst') as readme_file:
 
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
-# raise Exception("".join(os.listdir(os.getcwd())))
-with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "requirements.txt")) as req:
+with open(os.path.join(os.getcwd(), "requirements.txt")) as req:
     requirements = req.readlines()
 
 setup_requirements = [ ]
