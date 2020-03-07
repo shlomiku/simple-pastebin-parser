@@ -1,9 +1,13 @@
 # Simple-Pastebin-Parser
 this is a simpler parser for the pastebin.com website.
-it will iterate posts and parse their elements using lxml 
-##Release notes:
-###v0.1.0 - P.O.C
 
+it will iterate posts and parse their elements using lxml 
+
+  Release notes:
+===
+
+v0.1.0 - P.O.C
+---
 initial proof of concept. nothing special, just doing the dirty work of parsing the posts.
 
 how to execute: 
