@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 """The setup script."""
+import os
 
 from setuptools import setup, find_packages
 
@@ -10,7 +11,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-with open("requirements.txt") as req:
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "requirements.txt")) as req:
     requirements = req.readlines()
 
 setup_requirements = [ ]
