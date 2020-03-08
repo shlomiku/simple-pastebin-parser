@@ -20,6 +20,12 @@ class Paste(object):
         self.Date = self.parse_date()
         self.Content = self.parse_code()
 
+    def get(self):
+        return {"Author":  self.Author,
+                "Title":   self.Title,
+                "Date":    self.Date,
+                "Content": self.Content}
+
     def parse_author(self):
         """
         under paste_box_line2 we have the user, date, etc.
