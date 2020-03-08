@@ -1,4 +1,6 @@
 import dateutil.parser
+import pytz
+import pandas as pd
 
 from simple_pastebin_parser.utils import parse_html, Url
 
@@ -60,9 +62,19 @@ class Paste(object):
     def parse_date(self):
         """
         the date is in the first span under paste_box_line1
+        we need to do some work to get it as UTC
+        it is displayed as CDT which is not easily parsed (tried dateutil, arrow and pandas)
+        google search shows it's 'America/Chicago' or -05:00
+        so I set it manually
+        then convert it using tz_convert() to UTC
         :return:
         """
-        return dateutil.parser.parse(self.tree.xpath("//div[contains(@class, 'paste_box_line2')]/span")[0].text)
+        date_str = self.tree.xpath("//div[contains(@class, 'paste_box_line2')]/span")[0].values()[0]
+        # CDT timezone is not automatically recognized so we add it manually
+        date = dateutil.parser.parse(date_str.replace("CDT", "-05:00"))
+        # date = date.replace(tzinfo=pytz.timezone('America/Chicago'))
+        # now we use pandas to easily convert to UTC
+        return pd.Timestamp(date).tz_convert(pytz.UTC).to_pydatetime()
 
     def parse_content(self):
         """
