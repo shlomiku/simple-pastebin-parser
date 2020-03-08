@@ -63,3 +63,10 @@ v0.4.0 (2020-03-08)
 * added documentation
 * cleaned most pep8 issues
 * some tests
+
+v0.5.0 (2020-03-08)
+*********************
+
+* parse date in UTC
+* add some logs
+* add id to Paste()
