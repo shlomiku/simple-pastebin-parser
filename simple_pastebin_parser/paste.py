@@ -42,7 +42,9 @@ class Paste(object):
         try:
             author = self.tree.xpath("//div[contains(@class, 'paste_box_line2')]/a")[0].text
         except IndexError:
-            author = "Guest"
+            author = ""
+        if author in ["Guest", "Unknown", "Anonymous"]:
+            author = ""
         return author
 
     def parse_title(self):
@@ -57,7 +59,10 @@ class Paste(object):
             self.title = self.tree.xpath("//div[@class='paste_box_line1']/h1")[0].text
         :return:
         """
-        return self.tree.xpath("//div[@class='paste_box_line1']/h1")[0].text
+        title = self.tree.xpath("//div[@class='paste_box_line1']/h1")[0].text
+        if title == "Untitled":
+            title = ""
+        return title
 
     def parse_date(self):
         """
