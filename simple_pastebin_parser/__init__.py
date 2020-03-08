@@ -15,27 +15,47 @@ KNOWN_PREFIXES = ['http://', 'https://', '/tools', '/doc_', '/archive/']
 PASTEBIN_ARCHIVE_URL = 'https://pastebin.com/archive'
 
 
-def get_posts(should_stream: bool=False, sampling_frequency=60*2):
+def trim_pastes_cache(hrefs):
     """
-    get the current posts on pastebin.com as a snapshot.
-
+    make sure we don't cache too much data.
+    if we have more than 1000 drop the first 100 ( threshold is arbitrary )
+    :param hrefs:
     :return:
+    """
+    if len(hrefs) > 1000:
+        hrefs = hrefs[100:]
+
+
+def get_pastes(should_stream: bool=False, sampling_frequency=60 * 2):
+    """
+    get the current pastes on pastebin.com.
+    if should_stream is False we get a snapshot of current pastes
+    if should_stream is True we will sample the site every sampling_frequency for new pastes
+    and yield them as they come
+
+    :return: yields pastes
     """
     hrefs = []
     while 1:
         tree = parse_html(Url(PASTEBIN_ARCHIVE_URL))
-        new_hrefs = get_all_hrefs_in_html(tree)
+        new_hrefs = get_current_pastes_ids(tree)
 
         for href in new_hrefs:
             if href not in hrefs:
                 yield Paste(href)
                 hrefs.append(href)
+        trim_pastes_cache(hrefs)
         sleep(sampling_frequency)
         if not should_stream:
             break
 
 
-def get_all_hrefs_in_html(tree):
+def get_current_pastes_ids(tree):
+    """
+
+    :param tree:
+    :return:
+    """
     unfiltered_hrefs = [ref for ref in tree.xpath("//@href") if ref not in KNOWN_HREFS]
     hrefs = []
     for href in unfiltered_hrefs:

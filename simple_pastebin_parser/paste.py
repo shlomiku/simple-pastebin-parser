@@ -15,6 +15,7 @@ def pastebin_post_url(href):
 class Paste(object):
     def __init__(self, href: str) -> None:
         self.tree = parse_html(Url(pastebin_post_url(href)))
+        self.id = href.strip("/")
         self.Author = self.parse_author()
         self.Title = self.parse_title()
         self.Date = self.parse_date()
