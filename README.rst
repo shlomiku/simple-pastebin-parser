@@ -56,3 +56,10 @@ v0.3.5 (2020-03-07)
 *********************
 
 * update README
+
+v0.4.0 (2020-03-08)
+*********************
+
+* added documentation
+* cleaned most pep8 issues
+* some tests
