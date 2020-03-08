@@ -44,7 +44,7 @@ v0.2.6 (2020-03-07)
 v0.3.0 (2020-03-07)
 *********************
 
-* created the Post() object for pastebin posts
+* created the Paste() object for pastebin posts
 * ability to stream data
 
 v0.3.3 (2020-03-07)

@@ -12,13 +12,13 @@ def pastebin_post_url(href):
     return 'https://pastebin.com{}'.format(href)
 
 
-class Post(object):
+class Paste(object):
     def __init__(self, href: str) -> None:
         self.tree = parse_html(Url(pastebin_post_url(href)))
-        self.author = self.parse_author()
-        self.title = self.parse_title()
-        self.date = self.parse_date()
-        self.code = self.parse_code()
+        self.Author = self.parse_author()
+        self.Title = self.parse_title()
+        self.Date = self.parse_date()
+        self.Content = self.parse_code()
 
     def parse_author(self):
         """
