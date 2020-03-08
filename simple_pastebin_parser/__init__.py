@@ -52,7 +52,12 @@ def get_pastes(should_stream: bool=False, sampling_frequency=60 * 2):
 
 def get_current_pastes_ids(tree):
     """
-
+    the way I extract all the current pastes is by
+    - extracting all hrefs from the main html by filtering like this: tree.xpath("//@href")
+    - remove the KNOWN_HREFS from the list ( the web app links )
+    - then I filter the KNOWN_PREFIXES which is the same as the previous step, but with 1 prefix I remove several links
+      so it's just to write less code
+    - then in the last step I remove too short results which cleans the last part of the list
     :param tree:
     :return:
     """
