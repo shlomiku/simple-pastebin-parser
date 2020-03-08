@@ -1,4 +1,3 @@
-
 import requests
 from lxml import html
 
@@ -10,7 +9,10 @@ class InvalidPastebinUrl(Exception):
 
 
 class Url:
-    def __init__(self, url: str, ):
+    """
+    just a small wrapper to a string, that validates that it's a legit pastebin.com/ url
+    """
+    def __init__(self, url: str):
         if not url.startswith(PASTEBIN_URL_PREFIX):
             raise InvalidPastebinUrl("not a valid pastebin url")
         self.url = url
@@ -20,6 +22,11 @@ class Url:
 
 
 def parse_html(url: Url):
+    """
+    using requests package to retrieve the Url and then parse it using lxml
+    :param url: Url
+    :return:
+    """
     page = requests.get(str(url))
     return html.fromstring(page.content)
 
