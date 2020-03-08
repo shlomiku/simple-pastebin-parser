@@ -19,7 +19,7 @@ class Paste(object):
         self.Author = self.parse_author()
         self.Title = self.parse_title()
         self.Date = self.parse_date()
-        self.Content = self.parse_code()
+        self.Content = self.parse_content()
 
     def get(self):
         return {"Author":  self.Author,
@@ -64,7 +64,7 @@ class Paste(object):
         """
         return dateutil.parser.parse(self.tree.xpath("//div[contains(@class, 'paste_box_line2')]/span")[0].text)
 
-    def parse_code(self):
+    def parse_content(self):
         """
         code has an id 'paste_code'. we could just search for that id directly
         :return:
