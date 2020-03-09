@@ -16,6 +16,20 @@ installation:
 pip install simple-pastebin-parser
 
 
+example usage
+#############
+.. code-block:: python
+
+    import simple_pastebin_parser
+
+    for paste in simple_pastebin_parser.get_pastes():
+        print("Title: ", paste.Title)
+        print("Author: ", paste.Author)
+        print("date: ", paste.Date)
+        print("Content: ")
+        print(paste.Content)
+        print("*" * 20)
+
 Release notes:
 ################
 
