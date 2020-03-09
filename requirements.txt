@@ -7,4 +7,4 @@ requests==2.23.0
 six==1.14.0
 urllib3==1.25.8
 pytz==2019.3
-pandas==1.0.1
+pandas==0.22.0
