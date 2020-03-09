@@ -84,3 +84,8 @@ v0.5.0 (2020-03-08)
 * parse date in UTC
 * add some logs
 * add id to Paste()
+
+v0.5.2 (2020-03-09)
+*********************
+
+* cleanups
