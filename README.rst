@@ -5,9 +5,11 @@
 Simple-Pastebin-Parser
 **********************
 
-this is a simpler parser for the pastebin.com website.
+this is a simple parser for the pastebin.com website.
 
 it will iterate posts and parse their elements using lxml
+
+`pypi <https://pypi.org/project/simple-pastebin-parser/#description>`_ link
 
 installation:
 #############
